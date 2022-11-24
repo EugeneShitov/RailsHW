@@ -18,7 +18,7 @@ class Api::V1::ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      render json: @article, status: :created, location: @article
+      render json: @article, status: :created
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -36,6 +36,7 @@ class Api::V1::ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
+    head :no_content
   end
 
   private
