@@ -1,12 +1,15 @@
-`cd ~/GH_review/RailsHW/HW5; rails s`
+1. `cd ~/GH_review/RailsHW/HW5; bundle install; rails s`
 
-[click me](http://[::1]:3000)
+2. Rename file `database.example.yml` to `database.yml` in `./config/`
+3. Change your info in file `database.yml` (username and password)
+4. `rails db:create; rails db:migrate`
+5. [click me](http://[::1]:3000)
 # Ви можете:
 1. Створити **автора**
 2. Створити **статтю**
 3. Створити **коментар** до **статті**
 
-## Робота в консолі
+## Робота в консолі `rails c`
 1. Створюємо автора `Author.create(name: "Імʼя")`
 2. Створюємо статтю `Article.create(title: "заголовок статті", body: "тіло статті", author_id: id автора)`
 3. Створюємо коментар до статті `Comment.create(body: "тіло коментаря", author_id: id автора, article_id: id статті)`
@@ -20,13 +23,13 @@ ___
 ___
 
 # Робота на localhost
-(усі лінки клікабільні)
-
-* Подивитись усі коментарі [http://[::1]:3000/api/v1/comments](http://[::1]:3000/api/v1/comments)
-* Подивитись усі опубліковані коментарі [http://[::1]:3000/api/v1/comments/published](http://[::1]:3000/api/v1/comments/published)
-* Подивитись усі неопубліковані коментарі [http://[::1]:3000/api/v1/comments/unpublished](http://[::1]:3000/api/v1/comments/unpublished)
-* Змінити статус вказаного коментаря на протилежний [http://[::1]:3000/api/v1/comments/1/change_status](http://[::1]:3000/api/v1/comments/1/change_status)
-* Подивитись усі статті [http://[::1]:3000/api/v1/articles](http://[::1]:3000/api/v1/articles)
-* Подивитись коментарі до конкретної статті (спочатку стаття потім коментарі) [http://[::1]:3000/api/v1/articles/1](http://[::1]:3000/api/v1/articles/1)
-* Подивитись опубліковані коментарі конкретної статті [http://[::1]:3000/api/v1/articles/1/published](http://[::1]:3000/api/v1/articles/1/published)
-* Подивитись неопубліковані коментарі конкретної статті [http://[::1]:3000/api/v1/articles/1/unpublished](http://[::1]:3000/api/v1/articles/1/unpublished)
+## Дії з коментарями
+* дивитись усі коментарі `/api/v1/comments`
+* дивитись усі опубліковані коментарі `/api/v1/comments/published`
+* дивитись усі неопубліковані коментарі `/api/v1/comments/unpublished`
+* змінити статус вказаного коментаря на протилежний `/api/v1/comments/1/change_status`
+## Дії з статтями
+* подивитись усі статті `/api/v1/articles`
+* подивитись коментарі до конкретної статті `/api/v1/articles/1` (спочатку стаття потім коментарі)
+* подивитись опубліковані коментарі конкретної статті `/api/v1/articles/1/published`
+* подивитись неопубліковані коментарі конкретної статті `/api/v1/articles/1/unpublished`
