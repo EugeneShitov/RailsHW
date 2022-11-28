@@ -1,3 +1,3 @@
 ### DO THIS
 
-`git clone https://github.com/EugeneShitov/RailsHW.git ~/GH_review/`
+<pre> git clone https://github.com/EugeneShitov/RailsHW.git ~/GH_review/ </pre>
