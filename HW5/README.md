@@ -1,15 +1,16 @@
-1. `cd ~/GH_review/RailsHW/HW5; bundle install; rails s`
+1. <pre> cd ~/GH_review/RailsHW/HW5; bundle install; rails s </pre>
 
 2. Rename file `database.example.yml` to `database.yml` in `./config/`
 3. Change your info in file `database.yml` (username and password)
-4. `rails db:create; rails db:migrate`
+4. <pre> rails db:create; rails db:migrate </pre>
 5. [click me](http://[::1]:3000)
 # Ви можете:
 1. Створити **автора**
 2. Створити **статтю**
 3. Створити **коментар** до **статті**
 
-## Робота в консолі `rails c`
+## Робота в консолі
+<pre> rails c </pre>
 1. Створюємо автора `Author.create(name: "Імʼя")`
 2. Створюємо статтю `Article.create(title: "заголовок статті", body: "тіло статті", author_id: id автора)`
 3. Створюємо коментар до статті `Comment.create(body: "тіло коментаря", author_id: id автора, article_id: id статті)`
