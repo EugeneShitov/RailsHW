@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  belongs_to :author
+  belongs_to :author, dependent: :destroy
   has_many :comments
 
   validates :body, :title, presence: true

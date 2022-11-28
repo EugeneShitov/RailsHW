@@ -1,24 +1,32 @@
-# README
+`cd ~/GH_review/RailsHW/HW5; rails s`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[click me](http://[::1]:3000)
+# Ви можете:
+1. Створити **автора**
+2. Створити **статтю**
+3. Створити **коментар** до **статті**
 
-Things you may want to cover:
+## Робота в консолі
+1. Створюємо автора `Author.create(name: "Імʼя")` (виведе всі можливі параметри для автора)
+2. Створюємо статтю `Article.create(title: "заголовок статті", body: "тіло статті", author_id: id автора)`
+3. Створюємо коментар до статті `Comment.create(body: "тіло коментаря", author_id: id автора, article_id: id статті)`
+також можна вказати параметр `status: 0 або 1`, за замовчуванням, якщо не вказувати цей параметр, статус буде - 0.
 
-* Ruby version
+0 - неопубліковано, 1 - опубліковано
+___
+* Ви не можете створити автора без імені.
+* Ви не можете створити статтю без автора, заголовка або тіла статті.
+* Ви не можете створити коментар без статті, автора або тіла коментаря.
+___
 
-* System dependencies
+# Робота на localhost
+(усі лінки клікабільні)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Подивитись усі коментарі [http://[::1]:3000/api/v1/comments](http://[::1]:3000/api/v1/comments)
+* Подивитись усі опубліковані коментарі [http://[::1]:3000/api/v1/comments/published](http://[::1]:3000/api/v1/comments/published)
+* Подивитись усі неопубліковані коментарі [http://[::1]:3000/api/v1/comments/unpublished](http://[::1]:3000/api/v1/comments/unpublished)
+* Змінити статус вказаного коментаря на протилежний [http://[::1]:3000/api/v1/comments/1/change_status](http://[::1]:3000/api/v1/comments/1/change_status)
+* Подивитись усі статті [http://[::1]:3000/api/v1/articles](http://[::1]:3000/api/v1/articles)
+* Подивитись коментарі до конкретної статті (спочатку стаття потім коментарі) [http://[::1]:3000/api/v1/articles/1](http://[::1]:3000/api/v1/articles/1)
+* Подивитись опубліковані коментарі конкретної статті [http://[::1]:3000/api/v1/articles/1/published](http://[::1]:3000/api/v1/articles/1/published)
+* Подивитись неопубліковані коментарі конкретної статті [http://[::1]:3000/api/v1/articles/1/unpublished](http://[::1]:3000/api/v1/articles/1/unpublished)
