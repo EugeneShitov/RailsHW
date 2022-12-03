@@ -1,35 +1,16 @@
 class Api::V1::ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show update destroy]
-
-  # GET /api/v1/articles
   def index
     @articles = Article.all
 
     render json: @articles
   end
 
-  # GET /api/v1/articles/1
   def show
-    @comments = Article.find(params[:id]).comments
+    @article = Article.find(params[:id])
 
-    render json: { post: @article, comments: @comments }
+    render json: @article
   end
 
-  # GET /articles/1/published
-  def published
-    @comments = Article.find(params[:id]).comments.published
-
-    render json: @comments
-  end
-
-  # GET /articles/1/unpublished
-  def unpublished
-    @comments = Article.find(params[:id]).comments.unpublished
-
-    render json: @comments
-  end
-
-  # POST /api/v1/articles
   def create
     @article = Article.new(article_params)
 
@@ -40,7 +21,6 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /api/v1/articles/1
   def update
     if @article.update(article_params)
       render json: @article
@@ -49,20 +29,13 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # DELETE /api/v1/articles/1
   def destroy
     @article.destroy
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_article
-    @article = Article.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :author_id)
   end
 end
