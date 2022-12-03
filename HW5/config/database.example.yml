@@ -16,8 +16,12 @@
 #
 default: &default
   adapter: postgresql
+  username: username
+  password: password
   encoding: unicode
   host: localhost
+  port: 5432
+
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -25,17 +29,14 @@ default: &default
 development:
   <<: *default
   database: blog_development
-  username: username
-  password: password
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: blog_RoR_api
+
 
   # The password associated with the postgres role (username).
-  #password:
+  # password: 614600
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,7 +45,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  # port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -61,8 +62,6 @@ development:
 test:
   <<: *default
   database: blog_test
-  username: username
-  password: password
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: blog_RoR_api_production
+  database: blog_production
   username: blog
-  password: <%= ENV["BLOG_ROR_API_DATABASE_PASSWORD"] %>
+  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
