@@ -11,8 +11,8 @@
 
 ## Console
 <pre>rails c</pre>
-1. We create an author `Author.create(name: "*")`
-2. We create an article `Article.create(title: '*'', body: '*", author_id: *)`
+1. We create an author `Author.create(name: '*')`
+2. We create an article `Article.create(title: '*', body: '*', author_id: *)`
 3. We create a comment on the article `Comment.create(body: '*', author_id: *, article_id: *)`
 you can also specify a parameter `status: 0 or 1`, by default, if you do not specify this parameter, the status will be - 0.
 
