@@ -2,7 +2,7 @@
 
 2. Rename file `database.example.yml` to `database.yml` in `./config/`
 3. Change your info in file `database.yml` (username and password)
-4. <pre>rails db:create; rails db:migrate</pre>
+4. <pre>rails db:setup</pre>
 5. [click me](http://[::1]:3000)
 # You can:
 1. Create **author**
