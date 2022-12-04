@@ -1,21 +1,21 @@
 class Api::V1::CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @comments = Article.find(params[:article_id]).comments.all
 
     render json: @comments
   end
 
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Article.find(params[:article_id]).comments.find(params[:id])
 
     render json: @comment
   end
 
   def status
-    @comment = Comment.find(params[:id])
-    @comment.status == 'unpublished' ? 'published' : 'unpublished'
+    change_status = Comment.find(params[:id]).status == 'unpublished' ? 'published' : 'unpublished'
+    @comment = Comment.find(params[:id]).update(status: change_status)
 
-    render json: @comment
+    redirect_to("/api/v1/articles/#{params[:article_id]}/comments/#{params[:id]}")
   end
 
   def published
