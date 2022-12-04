@@ -1,36 +1,32 @@
-1. <pre> cd ~/GH_review/RailsHW/HW5; bundle install; rails s </pre>
+1. <pre>cd ~/GH_review/RailsHW/HW5; bundle install; rails s</pre>
 
 2. Rename file `database.example.yml` to `database.yml` in `./config/`
 3. Change your info in file `database.yml` (username and password)
-4. <pre> rails db:create; rails db:migrate </pre>
+4. <pre>rails db:create; rails db:migrate</pre>
 5. [click me](http://[::1]:3000)
-# Ви можете:
-1. Створити **автора**
-2. Створити **статтю**
-3. Створити **коментар** до **статті**
+# You can:
+1. Create **author**
+2. Create **article**
+3. Create **comment** for **article**
 
-## Робота в консолі
-<pre> rails c </pre>
-1. Створюємо автора `Author.create(name: "Імʼя")`
-2. Створюємо статтю `Article.create(title: "заголовок статті", body: "тіло статті", author_id: id автора)`
-3. Створюємо коментар до статті `Comment.create(body: "тіло коментаря", author_id: id автора, article_id: id статті)`
-також можна вказати параметр `status: 0 або 1`, за замовчуванням, якщо не вказувати цей параметр, статус буде - 0.
+## Console
+<pre>rails c</pre>
+1. We create an author `Author.create(name: "*")`
+2. We create an article `Article.create(title: '*'', body: '*", author_id: *)`
+3. We create a comment on the article `Comment.create(body: '*', author_id: *, article_id: *)`
+you can also specify a parameter `status: 0 or 1`, by default, if you do not specify this parameter, the status will be - 0.
 
-0 - неопубліковано, 1 - опубліковано
+0 - unpublished, 1 - published
 ___
-* Ви не можете створити автора без імені.
-* Ви не можете створити статтю без автора, заголовка або тіла статті.
-* Ви не можете створити коментар без статті, автора або тіла коментаря.
+* You cannot create an author without a name.
+* You cannot create an article without an author, title, or article body.
+* You cannot create a comment without an article, author, or comment body.
 ___
 
-# Робота на localhost
-## Дії з коментарями
-* дивитись усі коментарі `/api/v1/comments`
-* дивитись усі опубліковані коментарі `/api/v1/comments/published`
-* дивитись усі неопубліковані коментарі `/api/v1/comments/unpublished`
-* змінити статус вказаного коментаря на протилежний `/api/v1/comments/1/change_status`
-## Дії з статтями
-* подивитись усі статті `/api/v1/articles`
-* подивитись коментарі до конкретної статті `/api/v1/articles/1` (спочатку стаття потім коментарі)
-* подивитись опубліковані коментарі конкретної статті `/api/v1/articles/1/published`
-* подивитись неопубліковані коментарі конкретної статті `/api/v1/articles/1/unpublished`
+# localhost 
+## Routes
+* see all articles `/api/v1/articles`
+* see all comments on a specific article `/api/v1/articles/:id/comments`
+* see all published comments on a specific article `/api/v1/articles/:id/comments/published`
+* see all unpublished comments on a specific article `/api/v1/articles/:id/comments/unpublished`
+* change the status of a comment in a specific article to the opposite `/api/v1/articles/:id/comments/:id/status`
