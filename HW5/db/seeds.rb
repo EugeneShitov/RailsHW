@@ -20,9 +20,9 @@ Author.create([
 
 Article.create([
                  {
-                   title: 'Nice',
-                   body: 'Best article ever!',
-                   author_id: 1
+                   title: 'Inflation',
+                   body: 'Yesterday I went to the store, the price of eggs went up!',
+                   author_id: 1,
                  },
                  {
                    title: 'Good',
@@ -65,3 +65,15 @@ Comment.create([
                    status: 1
                  }
                ])
+
+Tag.create([
+             {
+               name: 'True story'
+             },
+             {
+               name: 'Fantasy'
+             },
+             {
+               name: 'thinking'
+             }
+           ])
