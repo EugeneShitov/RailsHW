@@ -19,13 +19,13 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def published
-    @comments = Comment.published
+    @comments = Article.find(params[:article_id]).comments.published
 
     render json: @comments
   end
 
   def unpublished
-    @comments = Comment.unpublished
+    @comments = Article.find(params[:article_id]).comments.unpublished
 
     render json: @comments
   end
