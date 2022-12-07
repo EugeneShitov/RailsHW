@@ -30,3 +30,4 @@ ___
 * see all published comments on a specific article `/articles/:id/comments/published`
 * see all unpublished comments on a specific article `/articles/:id/comments/unpublished`
 * change the status of a comment in a specific article to the opposite `/articles/:id/comments/:id/status`
+* see last (10) comments for aticle `/article/:id/comments/latest`
