@@ -2,7 +2,7 @@
 
 2. Rename file `database.example.yml` to `database.yml` in `./config/`
 3. Change your info in file `database.yml` (username and password)
-4. <pre>rails db:setup</pre>
+4. <pre>rails db:migrate; rails db:setup</pre>
 5. [click me](http://[::1]:3000)
 # You can:
 1. Create **author**
@@ -25,8 +25,8 @@ ___
 
 # localhost 
 ## Routes
-* see all articles `/api/v1/articles`
-* see all comments on a specific article `/api/v1/articles/:id/comments`
-* see all published comments on a specific article `/api/v1/articles/:id/comments/published`
-* see all unpublished comments on a specific article `/api/v1/articles/:id/comments/unpublished`
-* change the status of a comment in a specific article to the opposite `/api/v1/articles/:id/comments/:id/status`
+* see all articles  `/articles`
+* see all comments on a specific article `/articles/:id/comments`
+* see all published comments on a specific article `/articles/:id/comments/published`
+* see all unpublished comments on a specific article `/articles/:id/comments/unpublished`
+* change the status of a comment in a specific article to the opposite `/articles/:id/comments/:id/status`

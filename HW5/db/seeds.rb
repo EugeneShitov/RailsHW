@@ -8,13 +8,13 @@
 
 Author.create([
                 {
-                  name: 'Oleg'
+                  name: 'Serhiy Marchenko'
                 },
                 {
-                  name: 'Natan'
+                  name: 'Oleksii Arestovych'
                 },
                 {
-                  name: 'Mike'
+                  name: 'Gabe Newell'
                 }
               ])
 
@@ -22,44 +22,44 @@ Article.create([
                  {
                    title: 'Inflation',
                    body: 'Yesterday I went to the store, the price of eggs went up!',
-                   author_id: 1,
+                   author_id: 1
                  },
                  {
-                   title: 'Good',
-                   body: 'Good article!',
+                   title: 'War',
+                   body: 'Imagine that Ukraine loses this war. Although, no, it is impossible!',
                    author_id: 2
                  },
                  {
-                   title: 'Bad',
-                   body: 'Bad article!',
+                   title: 'Games',
+                   body: 'When Dota 3 will be released?',
                    author_id: 3
                  }
                ])
 
 Comment.create([
                  {
-                   body: 'bestie!!!',
+                   body: 'Plot for a new game!',
                    author_id: 3,
                    article_id: 2
                  },
                  {
-                   body: 'Okay, not bad',
+                   body: 'It will bring a lot of money.',
                    author_id: 1,
                    article_id: 3
                  },
                  {
-                   body: 'Not bad post...',
+                   body: "I still can't believe it!",
                    author_id: 2,
                    article_id: 1
                  },
                  {
-                   body: 'Good words',
+                   body: 'The community is looking for where to invest money!',
                    author_id: 1,
                    article_id: 3,
                    status: 1
                  },
                  {
-                   body: 'beautiful idea',
+                   body: 'In two or three weeks everything will be as before.',
                    author_id: 2,
                    article_id: 1,
                    status: 1
@@ -74,6 +74,6 @@ Tag.create([
                name: 'Fantasy'
              },
              {
-               name: 'thinking'
+               name: 'Thinking'
              }
            ])
