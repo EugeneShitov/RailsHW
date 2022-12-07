@@ -8,4 +8,5 @@ class Comment < ApplicationRecord
 
   scope :published, -> { where(status: 1) }
   scope :unpublished, -> { where(status: 0) }
+  scope :last_ten, -> { last(10) && where(status: 1) }
 end

@@ -18,6 +18,12 @@ class Api::V1::CommentsController < ApplicationController
     redirect_to("/api/v1/articles/#{params[:article_id]}/comments/#{params[:id]}")
   end
 
+  def latest
+    @comments = Article.find(params[:article_id]).comments.last_ten
+
+    render json: @comments
+  end
+
   def published
     @comments = Article.find(params[:article_id]).comments.published
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
           get :published, on: :collection
           get :unpublished, on: :collection
           get :status, on: :member
+          get :latest, on: :collection
         end
       end
     end
