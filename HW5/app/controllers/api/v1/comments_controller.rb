@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
+  before_action :set_comment, only: %i[update destroy]
   def index
     @comments = Article.find(params[:article_id]).comments.all
 
@@ -37,9 +38,8 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-
-    if @comment.save
+    @comment = Comment.create(comment_params)
+    if @comment
       render json: @comment, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
@@ -48,17 +48,25 @@ class Api::V1::CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      render json: @comment, status: :created
+      render json: @comment, status: :ok
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @comment.destroy
+    if @comment.destroy
+      head :no_content
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:title, :body, :author_id, :article_id)
