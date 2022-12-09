@@ -1,3 +1,3 @@
 class Like < ApplicationRecord
-  belongs_to :reactionable, polymorphic: true, optional: true
+  belongs_to :likeable, polymorphic: true
 end

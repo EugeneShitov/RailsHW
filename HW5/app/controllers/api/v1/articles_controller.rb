@@ -2,13 +2,13 @@ class Api::V1::ArticlesController < ApplicationController
   def index
     @articles = Article.all
 
-    render json: @articles
+    render json: @articles, status: :ok
   end
 
   def show
     @article = Article.find(params[:id])
 
-    render json: @article
+    render json: @article, status: :ok
   end
 
   def create
@@ -23,7 +23,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      render json: @article
+      render json: @article, status: :ok
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -36,6 +36,6 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :author_id)
+    params.require(:article).permit(:title, :body)
   end
 end

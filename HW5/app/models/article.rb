@@ -2,9 +2,8 @@ class Article < ApplicationRecord
   belongs_to :author
 
   has_many :comments, dependent: :destroy
-  has_many :article_tags, dependent: :destroy
-  has_many :tags, through: :article_tags
-  has_many :likes, as: :reactionable
+  has_many :likes, as: :likeable
+  has_and_belongs_to_many :tags
 
   validates :body, :title, presence: true
   validates :body, length: { maximum: 5000 }

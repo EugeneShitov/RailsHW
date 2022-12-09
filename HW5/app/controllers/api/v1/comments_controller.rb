@@ -2,13 +2,13 @@ class Api::V1::CommentsController < ApplicationController
   def index
     @comments = Article.find(params[:article_id]).comments.all
 
-    render json: @comments
+    render json: @comments, status: :ok
   end
 
   def show
     @comment = Article.find(params[:article_id]).comments.find(params[:id])
 
-    render json: @comment
+    render json: @comment, status: :ok
   end
 
   def status
@@ -21,19 +21,19 @@ class Api::V1::CommentsController < ApplicationController
   def latest
     @comments = Article.find(params[:article_id]).comments.last_ten
 
-    render json: @comments
+    render json: @comments, status: :ok
   end
 
   def published
     @comments = Article.find(params[:article_id]).comments.published
 
-    render json: @comments
+    render json: @comments, status: :ok
   end
 
   def unpublished
     @comments = Article.find(params[:article_id]).comments.unpublished
 
-    render json: @comments
+    render json: @comments, status: :ok
   end
 
   def create
@@ -48,7 +48,7 @@ class Api::V1::CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      render json: @comment
+      render json: @comment, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end

@@ -2,20 +2,20 @@ class Api::V1::AuthorsController < ApplicationController
   def index
     @authors = Author.all
 
-    render json: @authors
+    render json: @authors, status: :ok
   end
 
   def show
     @author = Author.find(params[:id])
 
-    render json: @author
+    render json: @author, status: :ok
   end
 
   def create
     @author = Author.new(author_params)
 
     if @author.save
-      render json: @author
+      render json: @author, status: :created
     else
       render json: @author.errors, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class Api::V1::AuthorsController < ApplicationController
 
   def update
     if @author.update(author_params)
-      render json: @author
+      render json: @author, status: :ok
     else
       render json: @author.errors, status: :unprocessable_entity
     end

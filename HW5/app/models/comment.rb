@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :author
   belongs_to :article
 
-  has_many :likes, as: :reactionable
+  has_many :likes, as: :likeable
 
   validates :body, :author_id, :article_id, presence: true
 
