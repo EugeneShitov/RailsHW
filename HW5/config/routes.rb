@@ -8,6 +8,7 @@ Rails.application.routes.draw do
           get :status, on: :member
           get :latest, on: :collection
         end
+        resources :tags, :likes, only: %i[create destroy]
       end
     end
   end
