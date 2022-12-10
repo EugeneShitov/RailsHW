@@ -1,38 +1,40 @@
 class Api::V1::CommentsController < ApplicationController
   before_action :set_comment, only: %i[update destroy]
+  before_action :set_article, only: %i[index show latest published unpublished]
+
   def index
-    @comments = Article.find(params[:article_id]).comments.all
+    @comments = @article.comments
 
     render json: @comments, status: :ok
   end
 
   def show
-    @comment = Article.find(params[:article_id]).comments.find(params[:id])
+    @comment = @article.comments.find(params[:id])
 
     render json: @comment, status: :ok
   end
 
   def status
-    change_status = Comment.find(params[:id]).status == 'unpublished' ? 'published' : 'unpublished'
-    @comment = Comment.find(params[:id]).update(status: change_status)
+    change_status = @comment.status == 'unpublished' ? 'published' : 'unpublished'
+    @comment.update(status: change_status)
 
     redirect_to("/api/v1/articles/#{params[:article_id]}/comments/#{params[:id]}")
   end
 
   def latest
-    @comments = Article.find(params[:article_id]).comments.last_ten
+    @comments = @article.comments.last_ten
 
     render json: @comments, status: :ok
   end
 
   def published
-    @comments = Article.find(params[:article_id]).comments.published
+    @comments = @article.comments.published
 
     render json: @comments, status: :ok
   end
 
   def unpublished
-    @comments = Article.find(params[:article_id]).comments.unpublished
+    @comments = @article.comments.unpublished
 
     render json: @comments, status: :ok
   end
@@ -66,6 +68,10 @@ class Api::V1::CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def set_article
+    @article = Article.find(params[:article_id])
   end
 
   def comment_params
