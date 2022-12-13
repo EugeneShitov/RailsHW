@@ -3,10 +3,12 @@ Rails.application.routes.draw do
     scope module: 'v1' do
       resources :articles, :authors do
         resources :comments do
-          get :published, on: :collection
-          get :unpublished, on: :collection
+          collection do
+            get :published
+            get :unpublished
+            get :latest
+          end
           get :status, on: :member
-          get :latest, on: :collection
         end
         resources :tags, :likes, only: %i[create destroy]
       end
