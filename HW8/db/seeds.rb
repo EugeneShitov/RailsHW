@@ -56,13 +56,13 @@ Comment.create([
                    body: 'The community is looking for where to invest money!',
                    author_id: 1,
                    article_id: 3,
-                   status: 1
+                   status: 'published'
                  },
                  {
                    body: 'In two or three weeks everything will be as before.',
                    author_id: 2,
                    article_id: 1,
-                   status: 1
+                   status: 'published'
                  }
                ])
 
