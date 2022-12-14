@@ -1,8 +1,10 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: %i[show update destroy]
+  before_action :set_tag, only: %i[show destroy]
 
   def index
     @tags = Tag.all
+
+    render json: @tags, status: :ok
   end
 
   def show
@@ -10,16 +12,16 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.new(tag_params)
-    if @tag.save
-      render json: @tag, status: :created
+    @tag = Tag.create(tag_params)
+    if @tag
+      render json: @tag, status: :ok
     else
       render json: @tag.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    if @tag.update(tag_params)
+    if @tag.update(like_params)
       render json: @tag, status: :ok
     else
       render json: @tag.errors, status: :unprocessable_entity
