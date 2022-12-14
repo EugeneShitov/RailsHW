@@ -36,6 +36,22 @@ Article.create([
                  }
                ])
 
+Tag.create([
+             {
+               name: 'True story'
+             },
+             {
+               name: 'Fantasy'
+             },
+             {
+               name: 'Thinking'
+             }
+           ])
+
+Article.find(1).tags << Tag.find(1)
+Article.find(2).tags << Tag.find(2)
+Article.find(3).tags << Tag.find(3)
+
 Comment.create([
                  {
                    body: 'Plot for a new game!',
@@ -65,15 +81,3 @@ Comment.create([
                    status: 1
                  }
                ])
-
-Tag.create([
-             {
-               name: 'True story'
-             },
-             {
-               name: 'Fantasy'
-             },
-             {
-               name: 'Thinking'
-             }
-           ])

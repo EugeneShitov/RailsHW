@@ -36,6 +36,22 @@ Article.create([
                  }
                ])
 
+Tag.create([
+             {
+               name: 'True story'
+             },
+             {
+               name: 'Fantasy'
+             },
+             {
+               name: 'Thinking'
+             }
+           ])
+
+Article.find(1).tags << Tag.find(1)
+Article.find(2).tags << Tag.find(2)
+Article.find(3).tags << Tag.find(3)
+
 Comment.create([
                  {
                    body: 'Plot for a new game!',
@@ -56,24 +72,12 @@ Comment.create([
                    body: 'The community is looking for where to invest money!',
                    author_id: 1,
                    article_id: 3,
-                   status: 'published'
+                   status: 1
                  },
                  {
                    body: 'In two or three weeks everything will be as before.',
                    author_id: 2,
                    article_id: 1,
-                   status: 'published'
+                   status: 1
                  }
                ])
-
-Tag.create([
-             {
-               name: 'True story'
-             },
-             {
-               name: 'Fantasy'
-             },
-             {
-               name: 'Thinking'
-             }
-           ])
