@@ -3,6 +3,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = @articles.search_title_and_body(params[:search]) if params[:search].present?
 
     render json: @articles, status: :ok
   end
