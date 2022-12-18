@@ -13,6 +13,9 @@ class Api::V1::ArticlesController < ApplicationController
     # Filter by tag
     @articles = @articles.filter_by_tag(params[:tag]) if params[:tag].present?
 
+    # Sort by title asc or desc
+    @articles = @articles.sort_title_by_asc_desc(params[:order]) if params[:order].present?
+
     render json: @articles, status: :ok
   end
 

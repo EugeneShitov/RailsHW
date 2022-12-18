@@ -11,5 +11,6 @@ class Article < ApplicationRecord
 
   scope :search_title_and_body, ->(phrase) { where('title || body ILIKE ?', "%#{phrase}%") }
   scope :filter_by_author, ->(author_is) { joins(:author).where('name ILIKE ?', "%#{author_is}") }
-  scope :filter_by_tag, ->(tag_is) { joins(:tags).where('name ILIKE ?', "%#{tag_is}") }
+  scope :filter_by_tag, ->(tag_is) { joins(:tags).where('name ILIKE ?', "%#{tag_is}%") }
+  scope :sort_title_by_asc_desc, ->(order = 'asc') { order(title: order) }
 end
