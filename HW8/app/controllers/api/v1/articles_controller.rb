@@ -3,7 +3,15 @@ class Api::V1::ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+
+    # Search in title or body by phrase
     @articles = @articles.search_title_and_body(params[:search]) if params[:search].present?
+
+    # Filter by author
+    @articles = @articles.filter_by_author(params[:author]) if params[:author].present?
+
+    # Filter by tag
+    @articles = @articles.filter_by_tag(params[:tag]) if params[:tag].present?
 
     render json: @articles, status: :ok
   end

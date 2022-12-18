@@ -25,7 +25,15 @@ ___
 
 # localhost 
 ## Routes
+### Articles
 * see all articles  `/articles`
+* find an article by a phrase `/articles?search=#`
+`# is your phrase`
+* filter articles by author `/articles?author=#`
+  `# is author name`
+* filter articles by tag `/articles?tag=#`
+  `# is tag name`
+### Comments
 * see all comments on a specific article `/articles/:id/comments`
 * see all published comments on a specific article `/articles/:id/comments/published`
 * see all unpublished comments on a specific article `/articles/:id/comments/unpublished`
