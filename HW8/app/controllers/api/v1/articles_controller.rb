@@ -2,7 +2,7 @@ class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: %i[show update destroy]
 
   def index
-    @articles = Article.all
+    @pagy, @articles = pagy(Article.order(created_at: :desc), items: 15)
 
     # Search in title or body by phrase
     @articles = @articles.search_title_and_body(params[:search]) if params[:search].present?
@@ -20,7 +20,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def show
-    render json: @article, status: :ok
+    render json: @article, each_serializer: ArticleSerializer
   end
 
   def create

@@ -11,4 +11,5 @@ class Comment < ApplicationRecord
   scope :published, -> { where(status: 'published') }
   scope :unpublished, -> { where(status: 'unpublished') }
   scope :last_ten, -> { where(status: 'published').last(10) }
+  scope :filter_by_status, ->(filter) { where(status: filter) }
 end

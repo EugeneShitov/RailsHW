@@ -4,6 +4,7 @@ class Api::V1::AuthorsController < ApplicationController
   def index
     @authors = Author.all
 
+    @pagy, @authors = pagy(@authors, items: 15)
     render json: @authors, status: :ok
   end
 

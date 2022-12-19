@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_211455) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "body"
     t.bigint "author_id"
     t.bigint "article_id"

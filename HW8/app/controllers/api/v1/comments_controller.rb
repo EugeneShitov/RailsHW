@@ -5,6 +5,7 @@ class Api::V1::CommentsController < ApplicationController
   def index
     @comments = @article.comments
 
+    @pagy, @comments = pagy(@comments, items: 15)
     render json: @comments, status: :ok
   end
 
