@@ -1,0 +1,270 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/articles":
+    get:
+      summary: list articles
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create article
+      responses:
+        '200':
+          description: successful
+  "/articles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show article
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update article
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update article
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete article
+      responses:
+        '200':
+          description: successful
+  "/articles/{article_id}/comments/published":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: published comment
+      responses:
+        '200':
+          description: successful
+  "/articles/{article_id}/comments/unpublished":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: unpublished comment
+      responses:
+        '200':
+          description: successful
+  "/articles/{article_id}/comments/latest":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: latest comment
+      responses:
+        '200':
+          description: successful
+  "/articles/{article_id}/comments/{id}/status":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: status comment
+      responses:
+        '200':
+          description: successful
+  "/articles/{article_id}/comments":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list comments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create comment
+      responses:
+        '200':
+          description: successful
+  "/articles/{article_id}/comments/{id}":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show comment
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update comment
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update comment
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete comment
+      responses:
+        '200':
+          description: successful
+  "/authors/{author_id}/comments/published":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: published comment
+      responses:
+        '200':
+          description: successful
+  "/authors/{author_id}/comments/unpublished":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: unpublished comment
+      responses:
+        '200':
+          description: successful
+  "/authors/{author_id}/comments/latest":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: latest comment
+      responses:
+        '200':
+          description: successful
+  "/authors/{author_id}/comments/{id}/status":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: status comment
+      responses:
+        '200':
+          description: successful
+  "/authors/{author_id}/comments":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list comments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create comment
+      responses:
+        '200':
+          description: successful
+  "/authors/{author_id}/comments/{id}":
+    parameters:
+    - name: author_id
+      in: path
+      description: author_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show comment
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update comment
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update comment
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete comment
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
