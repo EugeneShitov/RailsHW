@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show]
-  before_action :authenticate_user!
 
   def index
     @categories = Category.all
