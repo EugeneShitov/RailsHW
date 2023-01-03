@@ -1,11 +1,19 @@
-<h1>
+<h1 class="text-center">
   Products
 </h1>
 
-<ul>
-  <% @products.each do |products| %>
-    <li>
-      <%= link_to products.name, products %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row justify-content-around">
+    <% @products.each do |product| %>
+      <div class="col p-2" >
+        <div class="card" style="width: 18rem;">
+          <img src="<%= product.image %>" class="card-img-top" style="max-width: 20em" alt="picture of <%= product.name %>>">
+          <div class="card-body">
+            <%= link_to product.name, product %>
+            <p class="card-text"><%= product.category.title %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

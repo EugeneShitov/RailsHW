@@ -1,0 +1,9 @@
+<% @products.each do |product| %>
+<div class="card" style="width: 18rem;">
+  <%= link_to product.name, @products %>
+  <img src="<%= product.image %>" class="card-img-top" alt="<%= product.name %>">
+  <div class="card-body">
+    <p class="card-text"><%= product.description %>></p>
+  </div>
+</div>
+<% end %>
