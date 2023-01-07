@@ -1,19 +1,35 @@
-<h1 class="text-center">
-  Products
-</h1>
+<body>
+  <main>
 
-<div class="container">
-  <div class="row justify-content-around">
-    <% @products.each do |product| %>
-      <div class="col p-2" >
-        <div class="card" style="width: 18rem;">
-          <img src="<%= product.image %>" class="card-img-top" style="max-width: 20em" alt="picture of <%= product.name %>>">
-          <div class="card-body">
-            <%= link_to product.name, product %>
-            <p class="card-text"><%= product.category.title %></p>
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+          <% @products.each do |product| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="<%= product.image %>" class="card-img-top" width="100%" height="225" alt="<%= product.name %>">
+
+              <div class="card-body">
+                <p class="card-text"><%= product.name %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-success">Buy</button>
+                    <button onclick="location.href='/products/<%= product.id %>'" type="button" class="btn btn-sm btn-outline-success">More</button>
+                  </div>
+                  <small class="text-muted"><%= product.price %> $</small>
+                </div>
+              </div>
+
+            </div>
           </div>
+          <% end %>
+
         </div>
+
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
+
+  </main>
+</body>

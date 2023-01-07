@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HW10</title>
+    <title>Armed Store</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +11,11 @@
   </head>
 
   <body>
-    <%#= render partial: 'layouts/templates/navbar' %>
-    <%#= render partial: 'layouts/templates/cards' %>
-    <div>
-      <%= render partial: 'layouts/templates/alert_notice' %>
+  <%= render 'layouts/template/header' %>
+  <div>
+      <%= render 'layouts/template/alert_notice' %>
       <%= yield %>
     </div>
+    <%= render 'layouts/template/footer' %>
   </body>
 </html>
