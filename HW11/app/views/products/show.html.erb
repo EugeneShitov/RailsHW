@@ -1,0 +1,21 @@
+<body>
+
+  <div class="container px-4 px-lg-5">
+
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+      <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="<%= @product.image %>" alt="Picture of <%= @product.name %>" />
+      </div>
+      <div class="col-lg-5">
+        <h1 class="font-weight-light"><%= @product.name %> <small class="text-muted" style="font-size: 16px"><%= @product.category.title %></small></h1>
+        <p><%= @product.description %></p>
+        <p>
+          <small class="text-muted"><%= @product.price %> $</small>
+        </p>
+        <a class="btn btn-success" href="#!">Add to Cart!</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>

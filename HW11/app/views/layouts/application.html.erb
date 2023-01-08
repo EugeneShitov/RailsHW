@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Armed Store</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <%= render 'layouts/template/header' %>
+  <div>
+      <%= render 'layouts/template/alert_notice' %>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/template/footer' %>
+  </body>
+</html>
